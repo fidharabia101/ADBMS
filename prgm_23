@@ -1,5 +1,5 @@
-> use christy;
-switched to db christy
+> use fidha;
+switched to db fidha
 > db.Students.insertMany([{"Name":"Tony","age":17,"id":1,"sec":"A","subject":["physics","maths"]},{"Name":"Alice","age":18,"id":2,"sec":"A","subject":["physics","maths"]},{"Name":"John","age":17,"id":3,"sec":"B","subject":["chemistry","maths"]},{"Name":"smith","age":17,"id":4,"sec":"B","subject":["chemistry","maths"]},{"Name":"Bob","age":18,"id":5,"sec":"C","subject":["computer","maths"]},{"Name":"Doe","age":18,"id":6,"sec":"C","subject":["computer","maths"]}])
 {
 	"acknowledged" : true,
