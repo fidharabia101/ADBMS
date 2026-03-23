@@ -1,0 +1,35 @@
+
+mysql> delimiter ;
+mysql> call sum1(2,2);
++--------------------+
+| result             |
++--------------------+
+| Sum of 2 numbers=4 |
++--------------------+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> delimiter //
+mysql> create procedure CheckOddOrEven(in input_number int)
+    -> begin
+    -> if mod(input_number,2)=0 then
+    -> select 'Even' as result;
+    -> else
+    -> select 'Odd' as result;
+    -> end if;
+    -> end //
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> delimiter ;
+mysql> call CheckOddOrEven(5);
++--------+
+| result |
++--------+
+| Odd    |
++--------+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.00 sec)
+
+

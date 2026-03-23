@@ -1,0 +1,86 @@
+mysql> create table Employee(Emp_Id int primary key,Emp_Name varchar(50),Dept_Id int,Salary float,foreign key(Dept_Id)references Department(Dept_Id)); 
+Query OK, 0 rows affected (0.19 sec)
+
+mysql> insert into Employee(Emp_Id,Emp_Name,Dept_Id,Salary)values(10,'EmpA',1,50000.00),(102,'EmpB',2,35000.00),(104,'EmpD',4,75000.25);
+Query OK, 3 rows affected (0.02 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+
+mysql> select*from Employee;
++--------+----------+---------+---------+
+| Emp_Id | Emp_Name | Dept_Id | Salary  |
++--------+----------+---------+---------+
+|     10 | EmpA     |       1 |   50000 |
+|    102 | EmpB     |       2 |   35000 |
+|    104 | EmpD     |       4 | 75000.2 |
++--------+----------+---------+---------+
+3 rows in set (0.00 sec)
+
+mysql> create user 'xyz'@'localhost' identified by 'a1234';
+Query OK, 0 rows affected (0.07 sec)
+
+mysql> grant all privileges on Employee to 'xyz'@'localhost';
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> show grants for 'xyz'@'localhost';
++------------------------------------------------------------------+
+| Grants for xyz@localhost                                         |
++------------------------------------------------------------------+
+| GRANT USAGE ON *.* TO `xyz`@`localhost`                          |
+| GRANT ALL PRIVILEGES ON `devika`.`Employee` TO `xyz`@`localhost` |
++------------------------------------------------------------------+
+2 rows in set (0.00 sec)
+
+mysql> quit;
+Bye
+
+mysql -u 'xyz' -p
+Enter password: 
+
+mysql> use christy;
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+
+mysql> select *from Employee;
++--------+----------+---------+---------+
+| Emp_Id | Emp_Name | Dept_Id | Salary  |
++--------+----------+---------+---------+
+|     10 | EmpA     |       1 |   50000 |
+|    102 | EmpB     |       2 |   35000 |
+|    104 | EmpD     |       4 | 75000.2 |
++--------+----------+---------+---------+
+3 rows in set (0.00 sec)
+
+mysql> quit;
+Bye
+
+sudo mysql
+
+mysql> use christy;
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+mysql> revoke all privileges on Employee from 'xyz'@'localhost';
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> show grants for 'xyz'@'localhost';
++-----------------------------------------+
+| Grants for xyz@localhost                |
++-----------------------------------------+
+| GRANT USAGE ON *.* TO `xyz`@`localhost` |
++-----------------------------------------+
+1 row in set (0.00 sec)
+
+mysql> quit;
+Bye
+
+mysql -u 'xyz' -p
+Enter password: 
+
+mysql> use christy;
+ERROR 1044 (42000): Access denied for user 'xyz'@'localhost' to database 'devika'
+mysql> quit;
+Bye
+

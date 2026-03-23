@@ -1,0 +1,140 @@
+mysql> create table employee(EMP_ID int,Name varchar(50),Department int,Salary int);
+Query OK, 0 rows affected (0.04 sec)
+mysql> create table department(DEP_ID int,Department_name varchar(50),HeadofDepartment varchar(50));
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> create table department(DEP_ID int,Department_name varchar(50),HeadofDepartment varchar(50));
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> insert into employee values(001,'Honey',1,40000);
+Query OK, 1 row affected (0.02 sec)
+
+mysql> insert into employee values(002,'Devika',2,45000);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into employee values(003,'Jebin',3,25000);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into employee values(004,'Deepthy',4,35000);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into department values(1,'HR','Reshma');
+Query OK, 1 row affected (0.02 sec)
+
+mysql> insert into department values(2,'Computer','Anu');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into department values(3,'Civil','Madhav');
+Query OK, 1 row affected (0.02 sec)
+
+mysql> insert into department values(4,'Design','Merin');
+Query OK, 1 row affected (0.02 sec)
+
+mysql> select *from department;
++--------+-----------------+------------------+
+| DEP_ID | Department_name | HeadofDepartment |
++--------+-----------------+------------------+
+|      1 | HR              | Reshma           |
+|      2 | Computer        | Anu              |
+|      3 | Civil           | Madhav           |
+|      4 | Design          | Merin            |
++--------+-----------------+------------------+
+4 rows in set (0.01 sec)
+
+mysql> select *from employee;
++--------+---------+------------+--------+
+| EMP_ID | Name    | Department | Salary |
++--------+---------+------------+--------+
+|      1 | Honey   |          1 |  40000 |
+|      2 | Devika  |          2 |  45000 |
+|      3 | Jebin   |          3 |  25000 |
+|      4 | Deepthy |          4 |  35000 |
++--------+---------+------------+--------+
+4 rows in set (0.00 sec)
+
+mysql> alter table department add primary key(DEP_ID);
+Query OK, 0 rows affected (0.42 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> alter table employee add primary key(EMP_ID);
+Query OK, 0 rows affected (0.08 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc employee;
++------------+-------------+------+-----+---------+-------+
+| Field      | Type        | Null | Key | Default | Extra |
++------------+-------------+------+-----+---------+-------+
+| EMP_ID     | int         | NO   | PRI | NULL    |       |
+| Name       | varchar(50) | YES  |     | NULL    |       |
+| Department | int         | YES  |     | NULL    |       |
+| Salary     | int         | YES  |     | NULL    |       |
++------------+-------------+------+-----+---------+-------+
+4 rows in set (0.01 sec)
+
+mysql> desc department;
++------------------+-------------+------+-----+---------+-------+
+| Field            | Type        | Null | Key | Default | Extra |
++------------------+-------------+------+-----+---------+-------+
+| DEP_ID           | int         | NO   | PRI | NULL    |       |
+| Department_name  | varchar(50) | YES  |     | NULL    |       |
+| HeadofDepartment | varchar(50) | YES  |     | NULL    |       |
++------------------+-------------+------+-----+---------+-------+
+3 rows in set (0.00 sec)
+
+mysql> update department set HeadofDepartment='Merin' where DEP_ID=1;
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select *from department;
++--------+-----------------+------------------+
+| DEP_ID | Department_name | HeadofDepartment |
++--------+-----------------+------------------+
+|      1 | HR              | Merin            |
+|      2 | Computer        | Anu              |
+|      3 | Civil           | Madhav           |
+|      4 | Design          | Merin            |
++--------+-----------------+------------------+
+4 rows in set (0.00 sec)
+
+mysql> update employee set Name='Mariya' where EMP_ID=1;
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select *from employee;
++--------+---------+------------+--------+
+| EMP_ID | Name    | Department | Salary |
++--------+---------+------------+--------+
+|      1 | Mariya  |          1 |  40000 |
+|      2 | Devika  |          2 |  45000 |
+|      3 | Jebin   |          3 |  25000 |
+|      4 | Deepthy |          4 |  35000 |
++--------+---------+------------+--------+
+4 rows in set (0.01 sec)
+
+mysql> delete from employee where EMP_ID=2;
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select *from employee;
++--------+---------+------------+--------+
+| EMP_ID | Name    | Department | Salary |
++--------+---------+------------+--------+
+|      1 | Mariya  |          1 |  40000 |
+|      3 | Jebin   |          3 |  25000 |
+|      4 | Deepthy |          4 |  35000 |
++--------+---------+------------+--------+
+3 rows in set (0.00 sec)
+
+mysql> delete from department where DEP_ID=2;
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select *from department;
++--------+-----------------+------------------+
+| DEP_ID | Department_name | HeadofDepartment |
++--------+-----------------+------------------+
+|      1 | HR              | Merin            |
+|      3 | Civil           | Madhav           |
+|      4 | Design          | Merin            |
++--------+-----------------+------------------+
+3 rows in set (0.00 sec)
+
+
