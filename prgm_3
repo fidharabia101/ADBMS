@@ -36,7 +36,7 @@ Bye
 mysql -u 'xyz' -p
 Enter password: 
 
-mysql> use christy;
+mysql> use fidha;
 Reading table information for completion of table and column names
 You can turn off this feature to get a quicker startup with -A
 
@@ -57,7 +57,7 @@ Bye
 
 sudo mysql
 
-mysql> use christy;
+mysql> use fidha;
 Reading table information for completion of table and column names
 You can turn off this feature to get a quicker startup with -A
 
@@ -79,7 +79,7 @@ Bye
 mysql -u 'xyz' -p
 Enter password: 
 
-mysql> use christy;
+mysql> use fidha;
 ERROR 1044 (42000): Access denied for user 'xyz'@'localhost' to database 'devika'
 mysql> quit;
 Bye
