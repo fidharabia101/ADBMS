@@ -1,5 +1,5 @@
-> use christy;
-switched to db christy
+> use fidha;
+switched to db fidha
 
 > db.createCollection("Products")
 { "ok" : 1 }
