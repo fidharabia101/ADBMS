@@ -1,5 +1,5 @@
-> use christy;
-switched to db christy
+> use fidha;
+switched to db fidha
 > db.createCollection("EMPLOYEE")
 { "ok" : 1 }
 > db.EMPLOYEE.insertMany([{"Empno":1,"Name":"John Doe","Salary":60000,"Role":"Manager"},{"Empno":1,"Name":"John Doe","Salary":60000,"Role":"Manager"}])
@@ -32,18 +32,18 @@ Successfully added user: { "user" : "admin", "roles" : [ "readWrite", "dbAdmin" 
 Successfully added user: { "user" : "developer", "roles" : [ "readWrite" ] }
 > show users
 {
-	"_id" : "christy.admin",
+	"_id" : "fidha.admin",
 	"userId" : UUID("70a12dc3-2fee-4591-a783-9940795069d1"),
 	"user" : "admin",
-	"db" : "christy",
+	"db" : "fidha",
 	"roles" : [
 		{
 			"role" : "readWrite",
-			"db" : "christy"
+			"db" : "fidha"
 		},
 		{
 			"role" : "dbAdmin",
-			"db" : "christy"
+			"db" : "fidha"
 		}
 	],
 	"mechanisms" : [
@@ -52,14 +52,14 @@ Successfully added user: { "user" : "developer", "roles" : [ "readWrite" ] }
 	]
 }
 {
-	"_id" : "christy.developer",
+	"_id" : "fidha.developer",
 	"userId" : UUID("02409115-0088-46ed-a70b-695addbc2967"),
 	"user" : "developer",
-	"db" : "christy",
+	"db" : "fidha",
 	"roles" : [
 		{
 			"role" : "readWrite",
-			"db" : "christy"
+			"db" : "fidha"
 		}
 	],
 	"mechanisms" : [
